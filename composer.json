@@ -29,7 +29,7 @@
     "autoload": {
         "psr-4": {
             "Dynamic\\Foxy\\Parser\\": "src/",
-            "Dynamic\\Foxy\\Parser\\Test\\": "tests/"
+            "Dynamic\\Foxy\\Parser\\Tests\\": "tests/"
         }
     },
     "extra": {

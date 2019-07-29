@@ -17,9 +17,9 @@ composer require dynamic/silverstripe-foxy-feed-parser
 
 See [License](license.md)
 
-## Example configuration (optional)
-If your module makes use of the config API in SilverStripe it's a good idea to provide an example config
- here that will get the module working out of the box and expose the user to the possible configuration options.
+## Localized Testing
+
+
 
 Provide a yaml code example where possible.
 
