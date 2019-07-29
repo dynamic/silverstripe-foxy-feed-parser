@@ -17,22 +17,6 @@ composer require dynamic/silverstripe-foxy-feed-parser
 
 See [License](license.md)
 
-## Localized Testing
-
-
-
-Provide a yaml code example where possible.
-
-```yaml
-
-Page:
-  config_option: true
-  another_config:
-    - item1
-    - item2
-  
-```
-
 ## Maintainers
 *  [Dynamic](http://www.dynamicagency.com) (<dev@dynamicagency.com>)
  

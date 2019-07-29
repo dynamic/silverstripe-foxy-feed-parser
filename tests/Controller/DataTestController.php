@@ -94,12 +94,8 @@ class DataTestController extends Controller implements TestOnly
 
         $orderID = $data['OrderID'];
         if ($orderID === 'auto' || $orderID < 1) {
-            $lastOrderID = 0;
-            if ($lastOrder = Order::get()->sort('OrderID')->last()) {
-                $lastOrderID = $lastOrder->OrderID;
-            };
             static::config()->merge('data', [
-                'OrderID' => $lastOrderID + 1,
+                'OrderID' => rand(0, 5000),
             ]);
         }
 
