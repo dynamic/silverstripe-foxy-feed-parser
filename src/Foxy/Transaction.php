@@ -200,7 +200,8 @@ class Transaction
         foreach ($details as $detail) {
             $product = $this->getObject($detail, $this->config()->get('transaction_detail_mapping'));
 
-            $product->transaction_detail_options = $this->getProductOptions($detail->transaction_detail_options->transaction_detail_option);
+            $product->transaction_detail_options =
+                $this->getProductOptions($detail->transaction_detail_options->transaction_detail_option);
 
             $detailsList->push($product);
         }
