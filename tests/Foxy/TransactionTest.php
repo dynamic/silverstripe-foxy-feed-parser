@@ -36,7 +36,6 @@ class TransactionTest extends FunctionalTest
     {
         parent::setUp();
 
-        $defaultKey = Config::inst()->get(FoxyHelper::class, 'secret');
         Config::modify()->set(FoxyHelper::class, 'secret', 'abc123');
     }
 
