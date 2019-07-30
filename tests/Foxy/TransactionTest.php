@@ -47,7 +47,12 @@ class TransactionTest extends FunctionalTest
     {
         $response = $this->get('/foxytest/xml');
 
-        $this->expectException(\ArgumentCountError::class);
+        if (PHP_VERSION_ID < 70100) {
+            $this->markTestSkipped('PHPUnit_Framework_Error_Warning exception is thrown for legacy PHP versions only');
+        } else {
+            $this->expectException(\ArgumentCountError::class);
+        }
+
         Transaction::create();
 
         $this->assertInstanceOf(Transaction::class, Transaction::create($response));
