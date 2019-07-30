@@ -1,0 +1,14 @@
+Dynamic\Foxy\Model\ProductOption:
+  red:
+    Title: Red
+  blue:
+    Title: Blue
+
+Dynamic\Foxy\Parser\Tests\Product\FoxyFeedTestProduct:
+  one:
+    Title: 'Example Product with Hex and Plus Spaces'
+    Price: 10.00
+    Code: abc123zzz
+    ReceiptTitle: 'My Custom Receipt Title'
+    Available: 1
+    Weight: 4.00

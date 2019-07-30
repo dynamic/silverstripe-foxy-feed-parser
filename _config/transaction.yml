@@ -1,0 +1,85 @@
+---
+name: foxy-transaction-config
+---
+#Data type mapping for Foxy data for use in the Transaction processor
+Dynamic\Foxy\Parser\Foxy\Transaction:
+  transaction_mapping:
+    id: 'int'
+    store_id: 'int'
+    store_version: 'string'
+    is_test: 'bool'
+    is_hidden: 'bool'
+    data_is_fed: 'bool'
+    transaction_date: 'string'
+    processor_response: 'string'
+    customer_id: 'int'
+    is_anonymous: 'bool'
+    minfraud_score: 'float'
+    customer_first_name: 'string'
+    customer_last_name: 'string'
+    customer_company: 'string'
+    customer_address1: 'string'
+    customer_address2: 'string'
+    customer_city: 'string'
+    customer_state: 'string'
+    customer_postal_code: 'string'
+    customer_country: 'string'
+    customer_phone: 'string'
+    customer_email: 'string'
+    shipping_first_name: 'string'
+    shipping_last_name: 'string'
+    shipping_company: 'string'
+    shipping_address1: 'string'
+    shipping_address2: 'string'
+    shipping_city: 'string'
+    shipping_state: 'string'
+    shipping_postal_code: 'string'
+    shipping_country: 'string'
+    shipping_phone: 'string'
+    shipto_shipping_service_description: 'string'
+    purchase_order: 'string'
+    product_total: 'float'
+    tax_total: 'float'
+    shipping_total: 'float'
+    order_total: 'float'
+    receipt_url: 'string'
+    status: 'string'
+    customer_password: 'string'
+    customer_password_salt: 'string'
+    customer_password_hash_config: 'int'
+
+  discounts_mapping:
+    code: 'string'
+    name: 'string'
+    amount: 'float'
+    display: 'string'
+
+  transaction_detail_mapping:
+    product_name: 'string'
+    product_quantity: 'int'
+    product_weight: 'float'
+    product_code: 'string'
+    parent_code: 'string'
+    image: 'string'
+    url: 'string'
+    length: 'string' #check if this should be float
+    width: 'string' #check if this should be float
+    height: 'string' #check if this should be float
+    expires: 'string'
+    sub_token_url: 'string'
+    subscription_frequency: 'string'
+    subscription_startdate: 'string'
+    subscription_nextdate: 'string'
+    subscription_enddate: 'string'
+    is_future_line_item: 'bool' #confirm this is correct type
+    ship_to: 'string'
+    category_description: 'string'
+    category_code: 'string'
+    product_delivery_type: 'string'
+
+  transaction_detail_option_mapping:
+    product_option_name: 'string'
+    product_option_value: 'string'
+    price_mod: 'float'
+    weight_mod: 'float'
+    # check for product code modifier
