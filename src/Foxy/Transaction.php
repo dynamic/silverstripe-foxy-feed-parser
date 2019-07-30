@@ -238,24 +238,22 @@ class Transaction
      */
     protected function getObject($data, $config = [])
     {
-        $object = ArrayData::create();
-
         foreach ($config as $name => $type) {
             switch ($type) {
                 case 'int':
-                    $object->{$name} = (int)$data->{$name};
+                    $data[$name] = (int)$data->{$name};
                     break;
                 case 'float':
-                    $object->{$name} = (float)$data->{$name};
+                    $data[$name] = (float)$data->{$name};
                     break;
                 case 'string':
                 default:
-                    $object->{$name} = (string)$data->{$name};
+                    $data[$name] = (string)$data->{$name};
                     break;
             }
         }
 
-        return $object;
+        return ArrayData::create($data);
     }
 
     /**

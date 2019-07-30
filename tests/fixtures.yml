@@ -4,7 +4,7 @@ Dynamic\Foxy\Model\ProductOption:
   blue:
     Title: Blue
 
-Dynamic\Foxy\Parser\Tests\Product\TestProduct:
+Dynamic\Foxy\Parser\Tests\Product\FoxyFeedTestProduct:
   one:
     Title: 'Example Product with Hex and Plus Spaces'
     Price: 10.00
