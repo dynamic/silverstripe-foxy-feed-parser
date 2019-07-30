@@ -2,15 +2,10 @@
 
 namespace Dynamic\Foxy\Parser\Controller;
 
-use Dynamic\Foxy\Model\FoxyHelper;
-use Dynamic\Foxy\Orders\Factory\OrderFactory;
-use Dynamic\Foxy\Orders\Foxy\Transaction;
-use Dynamic\Foxy\Orders\Model\Order;
+use Dynamic\Foxy\Parser\Foxy\Transaction;
 use SilverStripe\Control\Controller;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\ORM\ValidationException;
-use SilverStripe\Security\Member;
-use SilverStripe\Security\Security;
 
 /**
  * Class FoxyController
@@ -81,40 +76,6 @@ class FoxyController extends Controller
     {
         $transaction = Transaction::create($encryptedData);
 
-        if (!OrderFactory::create($transaction)->getOrder()) {
-            //log error and send parse error notification
-        }
-    }
-
-    /**
-     * @param $transaction
-     * @return bool
-     * @throws ValidationException
-     */
-    private function processTransaction($transaction, $encryptedData)
-    {
-        if (!isset($transaction->id)) {
-            return false;
-        }
-        if (!$order = Order::get()->filter('OrderID', (int)$transaction->id)->first()) {
-            $order = Order::create();
-            $order->OrderID = (int)$transaction->id;
-        }
-        $order->Response = urlencode($encryptedData);
-        $order->write();
-    }
-
-    /**
-     * Decrypt the XML data feed from Foxy
-     *
-     * @param $data
-     * @return string
-     * @throws \SilverStripe\ORM\ValidationException
-     */
-    private function decryptFeedData($data)
-    {
-        $helper = FoxyHelper::create();
-
-        return \rc4crypt::decrypt($helper->config()->get('secret'), $data);
+        $this->extend('doAdditionalParse', $transaction);
     }
 }
