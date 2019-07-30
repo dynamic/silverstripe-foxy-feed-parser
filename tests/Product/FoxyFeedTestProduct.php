@@ -10,8 +10,13 @@ use SilverStripe\Dev\TestOnly;
  * Class TestProduct
  * @package Dynamic\Foxy\Parser\Tests\Product
  */
-class TestProduct extends SiteTree implements TestOnly
+class FoxyFeedTestProduct extends SiteTree implements TestOnly
 {
+    /**
+     * @var string
+     */
+    private static $table_name = 'FoxyFeedTestProduct';
+
     /**
      * @var array
      */

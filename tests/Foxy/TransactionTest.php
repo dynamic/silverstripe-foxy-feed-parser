@@ -5,6 +5,7 @@ namespace Dynamic\Foxy\Parser\Tests\Foxy;
 use Dynamic\Foxy\Model\FoxyHelper;
 use Dynamic\Foxy\Parser\Foxy\Transaction;
 use Dynamic\Foxy\Parser\Tests\Controller\DataTestController;
+use Dynamic\Foxy\Parser\Tests\Product\TestProduct;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Dev\FunctionalTest;
 use SilverStripe\ORM\ArrayList;
@@ -20,6 +21,13 @@ class TransactionTest extends FunctionalTest
      * @var string
      */
     protected static $fixture_file = '../fixtures.yml';
+
+    /**
+     * @var array
+     */
+    protected static $extra_dataobjects = [
+        TestProduct::class,
+    ];
 
     /**
      *
