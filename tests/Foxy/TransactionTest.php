@@ -17,6 +17,11 @@ use SilverStripe\View\ArrayData;
 class TransactionTest extends FunctionalTest
 {
     /**
+     * @var string
+     */
+    protected static $fixture_file = '../fixtures.yml';
+
+    /**
      *
      */
     protected function setUp()
