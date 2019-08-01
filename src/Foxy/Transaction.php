@@ -19,6 +19,11 @@ class Transaction
     use Configurable;
 
     /**
+     * @var string Encrypted response from Foxy
+     */
+    private $encrypted_data;
+
+    /**
      * @var "Foxy.io transaction xml record"
      */
     private $transaction;
@@ -45,7 +50,27 @@ class Transaction
      */
     public function __construct($data)
     {
+        $this->setEncryptedData($data);
         $this->setTransaction($data);
+    }
+
+    /**
+     * @param $data
+     * @return $this
+     */
+    public function setEncryptedData($data)
+    {
+        $this->encrypted_data = $data;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEncryptedData()
+    {
+        return $this->encrypted_data;
     }
 
     /**
