@@ -1,11 +1,10 @@
 <?php
 
-namespace Dynamic\Foxy\Parser\Tests\Controller;
+namespace Dynamic\Foxy\Parser\Controller;
 
 use Dynamic\Foxy\Extension\Purchasable;
 use Dynamic\Foxy\Extension\Shippable;
 use Dynamic\Foxy\Model\FoxyHelper;
-use Dynamic\Foxy\Parser\Controller\FoxyController;
 use GuzzleHttp\Client;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Control\Controller;
@@ -13,17 +12,15 @@ use SilverStripe\Control\Director;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Dev\DebugView;
-use SilverStripe\Dev\TestOnly;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\Security\Member;
 use SilverStripe\Security\PasswordEncryptor;
-use SilverStripe\View\ArrayData;
 
 /**
- * Class DataTestController
+ * Class FoxyDataGeneratorController
  * @package Dynamic\Foxy\Parser\Controller
  */
-class DataTestController extends Controller implements TestOnly
+class FoxyDataGeneratorController extends Controller
 {
     /**
      * @var array
@@ -212,15 +209,11 @@ class DataTestController extends Controller implements TestOnly
      */
     public function xml()
     {
-        if ($this->config()->get('run_config_update')) {
-            $this->updateConfig();
-        }
+        $this->updateConfig();
 
         $config = static::config()->get('data');
 
-        if (isset($config['OrderDetails']) && !$config['OrderDetails'] instanceof ArrayData) {
-            $config['OrderDetails'] = ArrayList::create($config['OrderDetails']);
-        }
+        $config['OrderDetails'] = ArrayList::create($config['OrderDetails']);
 
         $xml = $this->renderWith('TestData', $config);
 

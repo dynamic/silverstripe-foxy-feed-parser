@@ -5,6 +5,7 @@ namespace Dynamic\Foxy\Parser\Tests\Foxy;
 use Dynamic\Foxy\Model\FoxyHelper;
 use Dynamic\Foxy\Parser\Foxy\Transaction;
 use Dynamic\Foxy\Parser\Tests\Controller\DataTestController;
+use Dynamic\Foxy\Parser\Tests\FoxyXMLFeedFactory;
 use Dynamic\Foxy\Parser\Tests\Product\FoxyFeedTestProduct;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Dev\FunctionalTest;
@@ -30,13 +31,58 @@ class TransactionTest extends FunctionalTest
     ];
 
     /**
-     *
+     * @throws \SilverStripe\Security\PasswordEncryptor_NotFoundException
      */
-    protected function setUp()
+    protected static function get_foxy_data()
     {
-        parent::setUp();
+        $password = 'password';
+        $hashType = 'sha1_v2.4';
+        $salt = 'faGgWXUTdZ7i42lpA6cljzKeGBeUwShBSNHECwsJmt';
+
+        return [
+            "TransactionDate" => strtotime("now"),
+            "OrderID" => rand(0, 5000),
+            "Email" => FoxyXMLFeedFactory::generate_email(),
+            "Password" => FoxyXMLFeedFactory::get_hashed_password($hashType, $password, $salt),
+            'Salt' => $salt,
+            'HashType' => $hashType,
+            "OrderDetails" => ArrayData::create([
+                'Title' => 'foo',
+                'Price' => 20.00,
+                'Quantity' => 1,
+                'Weight' => 0.1,
+                'DeliveryType' => 'shipped',
+                'CategoryDescription' => 'Default cateogry',
+                'CategoryCode' => 'DEFAULT',
+                'Options' => [
+                    [
+                        'Name' => 'color',
+                        'OptionValue' => 'blue',
+                        'PriceMod' => '',
+                        'WeightMod' => '',
+                    ],
+                    [
+                        'Name' => 'product_id',
+                        'OptionValue' => 5,
+                        'PriceMod' => '',
+                        'WeightMod' => '',
+                    ],
+                ],
+            ]),
+        ];
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public static function setUpBeforeClass()
+    {
+        parent::setUpBeforeClass();
 
         Config::modify()->set(FoxyHelper::class, 'secret', 'abc123');
+        Config::modify()->merge(DataTestController::class, 'allowed_actions', ['index', 'xml', 'encryptedXML']);
+        Config::modify()->set(DataTestController::class, 'data', static::get_foxy_data());
+        Config::modify()->set(DataTestController::class, 'run_config_update', false);
     }
 
     /**
