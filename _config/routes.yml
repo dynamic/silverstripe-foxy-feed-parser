@@ -13,3 +13,4 @@ Only:
 SilverStripe\Control\Director:
   rules:
     'foxytest//$Action/$ID/$Name': Dynamic\Foxy\Parser\Tests\Controller\DataTestController
+    'foxydatagenerator//$Action/$ID/$Name': Dynamic\Foxy\Parser\Controller\FoxyDataGeneratorController

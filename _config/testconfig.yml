@@ -1,0 +1,10 @@
+---
+name: test-controller-config
+---
+Dynamic\Foxy\Parser\Tests\Controller:
+  data:
+    TransactionDate: "now"
+    OrderID: "auto"
+    Email: "auto"
+    Password: "password"
+    #"OrderDetails" => []
