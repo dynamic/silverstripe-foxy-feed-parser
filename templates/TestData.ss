@@ -74,7 +74,7 @@
                     <product_price>$Price</product_price>
                     <product_quantity>$Quantity</product_quantity>
                     <product_weight>$Weight</product_weight>
-                    <product_code></product_code>
+                    <product_code>$ProductCode</product_code>
                     <parent_code></parent_code>
                     <image></image>
                     <url></url>

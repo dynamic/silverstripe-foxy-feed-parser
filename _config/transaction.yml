@@ -58,6 +58,7 @@ Dynamic\Foxy\Parser\Foxy\Transaction:
     product_name: 'string'
     product_quantity: 'int'
     product_weight: 'float'
+    product_price: 'float'
     product_code: 'string'
     parent_code: 'string'
     image: 'string'
