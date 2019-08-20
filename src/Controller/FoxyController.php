@@ -62,6 +62,8 @@ class FoxyController extends Controller
             : urldecode($request->postVar('FoxySubscriptionData'));
         $this->parseFeedData($encryptedData);
 
+        $encryptedData = urlencode($encryptedData);
+
         $this->extend('addIntegrations', $encryptedData);
     }
 
