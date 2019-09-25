@@ -87,7 +87,7 @@ class FoxyDataGeneratorController extends Controller
         $data = Config::inst()->get(self::class, 'data');
         $transactionDate = $data['TransactionDate'];
         static::config()->merge('data', [
-            'TransactionDate' => strtotime($transactionDate),
+            'TransactionDate' => date( 'Y-m-d H:i:s', strtotime($transactionDate)),
         ]);
 
         $orderID = $data['OrderID'];
