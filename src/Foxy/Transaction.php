@@ -190,7 +190,7 @@ class Transaction
         $discountsList = ArrayList::create();
 
         foreach ($discounts as $discount) {
-            $discountsList->push($this->getObject($discount, $this->config()->get('discounts_mapping')));
+            $discountsList->push($this->getObject($discount->discount, $this->config()->get('discounts_mapping')));
         }
 
         $this->discount_data = $discountsList;
