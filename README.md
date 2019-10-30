@@ -1,6 +1,17 @@
 # SilverStripe Foxy Feed Parser
 
-An add-on module to parse the Foxy.io datafeed.
+An add-on module to parse the Foxy.io XML datafeed.
+
+[![Build Status](https://travis-ci.org/dynamic/silverstripe-foxy-feed-parser.svg?branch=master)](https://travis-ci.org/dynamic/silverstripe-foxy-feed-parser)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dynamic/silverstripe-foxy-feed-parser/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dynamic/silverstripe-foxy-feed-parser/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/dynamic/silverstripe-foxy-feed-parser/badges/build.png?b=master)](https://scrutinizer-ci.com/g/dynamic/silverstripe-foxy-feed-parser/build-status/master)
+[![codecov](https://codecov.io/gh/dynamic/silverstripe-foxy-feed-parser/branch/master/graph/badge.svg)](https://codecov.io/gh/dynamic/silverstripe-foxy-feed-parser)
+
+[![Latest Stable Version](https://poser.pugx.org/dynamic/silverstripe-foxy-feed-parser/v/stable)](https://packagist.org/packages/dynamic/silverstripe-foxy-feed-parser)
+[![Total Downloads](https://poser.pugx.org/dynamic/silverstripe-foxy-feed-parser/downloads)](https://packagist.org/packages/dynamic/silverstripe-foxy-feed-parser)
+[![Latest Unstable Version](https://poser.pugx.org/dynamic/silverstripe-foxy-feed-parser/v/unstable)](https://packagist.org/packages/dynamic/silverstripe-foxy-feed-parser)
+[![License](https://poser.pugx.org/dynamic/silverstripe-foxy-feed-parser/license)](https://packagist.org/packages/dynamic/silverstripe-foxy-feed-parser)
+
 
 ## Requirements
 
