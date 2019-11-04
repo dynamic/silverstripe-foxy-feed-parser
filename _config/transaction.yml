@@ -53,6 +53,8 @@ Dynamic\Foxy\Parser\Foxy\Transaction:
     name: 'string'
     amount: 'float'
     display: 'string'
+    coupon_discount_type: 'string'
+    coupon_discount_details: 'string'
 
   transaction_detail_mapping:
     product_name: 'string'
