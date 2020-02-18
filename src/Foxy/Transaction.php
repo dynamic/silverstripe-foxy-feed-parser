@@ -44,6 +44,11 @@ class Transaction
     private $product_data;
 
     /**
+     * @var ArrayList
+     */
+    private $custom_fields_data;
+
+    /**
      * Transaction constructor.
      * @param $data string encrypted foxy response data from the xml data feed
      * @throws ValidationException
@@ -133,6 +138,7 @@ class Transaction
             'transaction' => $this->getTransactionData(),
             'products' => $this->getProductData(),
             'discounts' => $this->getDiscountData(),
+            'custom_fields' => $this->getCustomFieldsData(),
         ]);
     }
 
@@ -253,6 +259,38 @@ class Transaction
         return $options;
     }
 
+    /**
+     * @return ArrayList
+     */
+    protected function getCustomFieldsData()
+    {
+        if (!$this->custom_fields_data instanceof ArrayList) {
+            $this->setCustomFieldsData();
+        }
+
+        return $this->custom_fields_data;
+    }
+
+    /**
+     * @return $this
+     */
+    protected function setCustomFieldsData()
+    {
+        $customFields = $this->getTransaction()->custom_fields;
+        $customFieldsList = ArrayList::create();
+
+        foreach ($customFields as $customFieldArray) {
+            foreach ($customFieldArray as $customField) {
+                $customFieldsList->push($this->getObject(
+                    $customField,
+                    $this->config()->get('custom_fields_mapping')
+                ));
+            }
+        }
+
+        $this->custom_fields_data = $customFieldsList;
+        return $this;
+    }
 
     /**
      * Returns an ArrayData object based on the given iterable data and a key/val config array. Used
@@ -273,6 +311,10 @@ class Transaction
                     break;
                 case 'float':
                     $dataArray[$name] = (float)$data->{$name};
+                    break;
+                case 'bool':
+                case 'boolean':
+                    $dataArray[$name] = (bool)$data->{$name};
                     break;
                 case 'string':
                 default:

@@ -56,6 +56,11 @@ Dynamic\Foxy\Parser\Foxy\Transaction:
     coupon_discount_type: 'string'
     coupon_discount_details: 'string'
 
+  custom_fields_mapping:
+    custom_field_name: 'string'
+    custom_field_value: 'string'
+    custom_field_is_hidden: 'bool'
+
   transaction_detail_mapping:
     product_name: 'string'
     product_quantity: 'int'
