@@ -16,7 +16,7 @@ class FoxyController extends Controller
     /**
      *
      */
-    const URLSEGMENT = 'foxy';
+    public const URLSEGMENT = 'foxy';
 
     /**
      * @var array
