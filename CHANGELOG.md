@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/dynamic/silverstripe-foxy-feed-parser/tree/1.1.0) (2020-07-18)
+
+[Full Changelog](https://github.com/dynamic/silverstripe-foxy-feed-parser/compare/1.0.2...1.1.0)
+
+**Merged pull requests:**
+
+- REFACTOR replace options with variations in tests [\#16](https://github.com/dynamic/silverstripe-foxy-feed-parser/pull/16) ([jsirish](https://github.com/jsirish))
+
 ## [1.0.2](https://github.com/dynamic/silverstripe-foxy-feed-parser/tree/1.0.2) (2020-02-21)
 
 [Full Changelog](https://github.com/dynamic/silverstripe-foxy-feed-parser/compare/1.0.1...1.0.2)
