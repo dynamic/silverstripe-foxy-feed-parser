@@ -1,8 +1,8 @@
-Dynamic\Foxy\Model\Variation:
-  red:
-    Title: Red
-  blue:
-    Title: Blue
+#Dynamic\Foxy\Model\Variation:
+#  red:
+#    Title: Red
+#  blue:
+#    Title: Blue
 
 Dynamic\Foxy\Parser\Tests\Product\FoxyFeedTestProduct:
   one:
