@@ -2,7 +2,9 @@
 
 namespace Dynamic\Foxy\Parser\Tests\Foxy;
 
+use Dynamic\Foxy\Inventory\Test\TestOnly\Page\TestProduct;
 use Dynamic\Foxy\Model\FoxyHelper;
+use Dynamic\Foxy\Model\Variation;
 use Dynamic\Foxy\Parser\Foxy\Transaction;
 use Dynamic\Foxy\Parser\Tests\Controller\DataTestController;
 use Dynamic\Foxy\Parser\Tests\FoxyXMLFeedFactory;
@@ -29,6 +31,16 @@ class TransactionTest extends FunctionalTest
     protected static $extra_dataobjects = [
         FoxyFeedTestProduct::class,
     ];
+
+    /**
+     *
+     */
+    protected function setUp()
+    {
+        parent::setUp();
+
+        Config::modify()->set(Variation::class, 'has_one', ['Product' => FoxyFeedTestProduct::class]);
+    }
 
     /**
      * @throws \SilverStripe\Security\PasswordEncryptor_NotFoundException
